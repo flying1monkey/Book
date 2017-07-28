@@ -1,0 +1,8 @@
+Java1001;Head First Java;Kathy Sierra and Bert Bates;Easy to read Java workbook;47.50;CompSci
+Java1002;Thinking in Java;Bruce Eckel;Details about Java under the hood;20.00;CompSci
+Orcl1003;OCP: Oracle Certified Professional Java SE;Jeanne Boyarsky;Everything you need to know in one place;45.00;CompSci
+Python1004;Automate the Boring Stuff with Python;Al Sweigart;Fun with Python;10.50;CompSci
+Zombie1005;The Maker's Guide to the Zombie Apocalypse;Simon Monk;Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi;16.50;CompSci
+Rasp1006;Raspberry Pi Projects for the Evil Genius;Donald Norris;A dozen fiendishly fun projects for the Raspberry Pi!;14.75;CompSci
+Gett1007;Getting Things Done;David Allen;The art of stress-free productivity;14.99;SelfHelp
+Ink1008;Ink and Bone;Rachel Caine;The Great Library;7.99;Fiction
