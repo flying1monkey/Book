@@ -6,15 +6,18 @@ public class mainMethod {
  * Comments on program go here-ran out of time
  */
 	
-	static ArrayList<Book> bookList=new ArrayList<Book>();
+	
 	static Scanner scan;
 
+	static BookDataBase bookDB = new BookDataBase();
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Instantiations
-		//new scanner object
+		//Instantiations and variables
 		scan = new Scanner(System.in);
 		int choice=0;
+		
+		
 		while(choice!=5)
 		{
 			System.out.printf("Welcome to the Library.  What would you like to do?%n"
@@ -52,6 +55,7 @@ public class mainMethod {
 				{
 					System.out.println("Have a nice day! Good bye!");
 					scan.close();
+					break;
 				}
 				default:
 				{
@@ -64,14 +68,15 @@ public class mainMethod {
 				
 	}
 	private static void selectBookByCat() {
+		
 		System.out.println("What category would you like to look for?");
 		String catToFind=scan.nextLine();
 		boolean found=false;
-		for(int counter=0;counter<bookList.size(); counter++)
+		for(int counter=0;counter< bookDB.getBookList().size(); counter++)
 		{
-			if(bookList.get(counter).getCategory().equalsIgnoreCase(catToFind))
+			if(bookDB.getBookList().get(counter).getCategory().equalsIgnoreCase(catToFind))
 			{
-				printBook(bookList.get(counter));
+				printBook(bookDB.getBookList().get(counter));
 				found=true;
 			}
 		}
@@ -83,11 +88,11 @@ public class mainMethod {
 		System.out.println("What author would you like to look for?");
 		String authToFind=scan.nextLine();
 		boolean found=false;
-		for(int counter=0;counter<bookList.size(); counter++)
+		for(int counter=0;counter<bookDB.getBookList().size(); counter++)
 		{
-			if(bookList.get(counter).getAuthor().contains(authToFind))
+			if(bookDB.getBookList().get(counter).getAuthor().contains(authToFind))
 			{
-				printBook(bookList.get(counter));
+				printBook(bookDB.getBookList().get(counter));
 				found=true;
 			}
 		}
@@ -115,9 +120,11 @@ public class mainMethod {
 		
 		
 		//add book to ArrayList(database)
-		bookList.add(book);
+		bookDB.addBook(book);
+		
 		System.out.print("Book added: "); //Confirm book added
-		printBook(bookList.get(bookList.size()-1)); //print last book
+		printBook(bookDB.getBookList().get(bookDB.getBookList().size()-1));
+		//printBook(bookList.get(bookList.size()-1)); //print last book
 		
 	}
 	
@@ -127,12 +134,12 @@ public class mainMethod {
 
 		System.out.println("What sku do you want to search for?");
 		String skuToFind = scan.nextLine();
-		for(int counter=0;counter<bookList.size(); counter++)
+		for(int counter=0;counter<bookDB.getBookList().size(); counter++)
 		{
-			if(bookList.get(counter).getSku().equalsIgnoreCase(skuToFind))
+			if(bookDB.getBookList().get(counter).getSku().equalsIgnoreCase(skuToFind))
 			{
 				//bookToPrint=bookList.get(counter);
-				return bookList.get(counter);
+				return bookDB.getBookList().get(counter);
 				
 			}
 		}
