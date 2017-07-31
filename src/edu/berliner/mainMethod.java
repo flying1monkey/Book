@@ -2,19 +2,9 @@ package edu.berliner;
 import java.util.*;
 
 public class mainMethod {
-
-	static String []skus={"Java1001","Java1002", "Orcl1003", "Python1004","Zombie1005","Rasp1006"}; 
-	static String []titles={"Head First Java","Thinking in JavaOCP: Oracle Certified Professional","Java SE",
-					 "Automate the Boring Stuff with Python","The Maker's Guide to the Zombie Apocalypse",
-					 "Raspberry Pi Projects for the Evil Genius"}; 
-	static String []authors={"Kathy Sierra and Bert Bates","Bruce Eckel","Jeanne Boyarsky","Al Sweigart","Simon Monk",
-					  "Donald Norris"}; 
-	static String []descriptions={"Easy to read Java workbook","Details about Java under the hood",
-						   "Everything you need to know in one place","Fun with Python",
-						   "Defend Your Base with Simple Circuits, Arduino, and Raspberry Pi",
-						   "A dozen fiendishly fun projects for the Raspberry Pi!"};
-	static double []prices={47.5,20,45,10.5,16.5,14.75};
-	static String []cats={"comp sci","comp sci","comp sci","comp sci","comp sci","comp sci",};
+/*
+ * Comments on program go here-ran out of time
+ */
 	
 	static ArrayList<Book> bookList=new ArrayList<Book>();
 	static Scanner scan;
@@ -22,9 +12,9 @@ public class mainMethod {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Instantiations
-		scan = new Scanner(System.in);//new scanner object
+		//new scanner object
+		scan = new Scanner(System.in);
 		int choice=0;
-		cheat();
 		while(choice!=5)
 		{
 			System.out.printf("Welcome to the Library.  What would you like to do?%n"
@@ -60,8 +50,8 @@ public class mainMethod {
 				}
 				case 5:
 				{
-					printAll();
-					break;
+					System.out.println("Have a nice day! Good bye!");
+					scan.close();
 				}
 				default:
 				{
@@ -70,8 +60,7 @@ public class mainMethod {
 			}
 		}
 		
-		System.out.println("Have a nice day! Good bye!");
-		scan.close();
+		
 				
 	}
 	private static void selectBookByCat() {
@@ -104,7 +93,8 @@ public class mainMethod {
 		}
 		if(!found) System.out.println("No books match that author.");
 	}
-	/*returns a book object based on given sku*/
+	
+	
 	public static void addBook()
 	{
 		Book book=new Book();//make new book object
@@ -118,10 +108,11 @@ public class mainMethod {
 		book.setAuthor(scan.nextLine());
 		System.out.println("What's the description?");
 		book.setDescr(scan.nextLine());
-		System.out.println("What's the price?");
-		book.setPrice(scan.nextDouble());
 		System.out.println("What's the category?");
 		book.setCategory(scan.nextLine());
+		System.out.println("What's the price?");
+		book.setPrice(scan.nextDouble());
+		
 		
 		//add book to ArrayList(database)
 		bookList.add(book);
@@ -130,6 +121,7 @@ public class mainMethod {
 		
 	}
 	
+	/*returns a book object based on given sku*/
 	public static Book selectBookBySku()
 	{
 
@@ -151,38 +143,11 @@ public class mainMethod {
 	public static void printBook(Book bookToPrint)
 	{
 		if(bookToPrint!=null)
-		//System.out.printf("For SKU \"%s\", the title is \"%s\", author(s) is/are \"%s\", price is $%.2f, and the description is \"%s\"%n",bookToPrint.getSku(),bookToPrint.getTitle(),bookToPrint.getAuthor(),bookToPrint.getPrice(),bookToPrint.getDescr());
-		System.out.printf("%s %s %s %s $%.2f %s%n",bookToPrint.getSku(),bookToPrint.getTitle(),bookToPrint.getAuthor(),bookToPrint.getCategory(),bookToPrint.getPrice(),bookToPrint.getDescr());
+		System.out.printf("SKU:%s Title:%s Author(s):%s Category:%s Price:$%.2f Description:%s%n",bookToPrint.getSku(),bookToPrint.getTitle(),bookToPrint.getAuthor(),bookToPrint.getCategory(),bookToPrint.getPrice(),bookToPrint.getDescr());
 	}
 	
+
 	
 	
-	
-	public static void printAll()
-	{
-		for(int counter=0;counter<bookList.size(); counter++)
-		{
-			printBook(bookList.get(counter));
-		}
-	}
-	
-	public static Book cheat()
-	{
-		Book bookcheat=new Book();//make new book object
-		
-		for(int counter=0; counter<6; counter++)//check each sku
-		{
-				bookcheat=new Book();
-				bookcheat.setSku(skus[counter]);
-				bookcheat.setTitle(titles[counter]);
-				bookcheat.setAuthor(authors[counter]);
-				bookcheat.setDescr(descriptions[counter]);
-				bookcheat.setPrice(prices[counter]);
-				bookcheat.setCategory(cats[counter]);
-				bookList.add(bookcheat);
-			
-		}
-		return bookcheat;  //return filled book object
-}
 }
 	
